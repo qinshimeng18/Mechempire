@@ -1,0 +1,17 @@
+<p>
+	<%= gravatar_for(@user, size: 20) %>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Motto:</strong>
+  <%= @user.motto %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>

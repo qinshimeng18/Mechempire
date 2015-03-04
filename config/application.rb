@@ -4,6 +4,7 @@ require File.expand_path('../boot', __FILE__)
 require "active_model/railtie"
 require "active_job/railtie"
 # require "active_record/railtie"
+
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
@@ -26,11 +27,17 @@ module MechWebsite
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :cn
 
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
 
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+    # config.generators do |g|
+    #   g.orm :active_record
+    # end
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+      "<span class=\"has-error\">#{html_tag}</span>".html_safe
+    }
   end
 end

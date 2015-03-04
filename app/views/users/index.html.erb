@@ -1,0 +1,10 @@
+<% provide(:title, '| 龙虎榜') %>
+<center class="row">
+  <h1>龙虎榜</h1>
+</center>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= paginate @users, :outer_window => 2 %>
